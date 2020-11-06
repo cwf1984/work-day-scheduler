@@ -4,57 +4,75 @@
 // WHEN I open the planner
 // THEN the current day is displayed at the top of the calendar
 
-var currentDay = moment().format("MMM Do, YYYY");
-$("#currentDay").text(currentDay);
+var currentDay = moment();
+$("#currentDay").text(currentDay.format("MMM Do, YYYY"));
 
-var currentHour = moment().format("LT");
-console.log(currentHour);
+var dayHours = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+var textInput = $("#textInput");
 
-var timeblockHour = [];
-var calendarTime = document.getElementsByTagName("time");
+for (var i = 0; i < dayHours.length; i++) {
+    var currentHourOne = parseInt(currentDay.format("H"));
+    var currentHourTwo = currentDay.hour();
+    console.log(currentHourOne, currentHourTwo);
+    //textarea color coded as currentHourTwo
 
-timeblockHour.push(...calendarTime);
-console.log(timeblockHour);
+    if (currentDay < dayHours) {
+    textInput.attr("class", "past");
+    }
 
-//turn into integers
-for (var i=0; i < timeblockHour.length; i++) {
-    timeblockHour[i] = parseInt(timeblockHour[i]);
-    console.log(timeblockHour);
-}
+    else if (currentDay == dayHours) {
+    textInput.attr("class", "present");
+    }
 
-var hour = $(".hour");
+    else {
+    textInput.attr("class", "future");
+    }
+};
 
-function timeChange() {
-    for (var i=0; i < timeblockHour.length; i++) {
+// var currentHour = moment().format("LT");
+// console.log(currentHour);
 
-if (currentHour > hour) {
-    hour.attr("class", "past");
-}
-
-else if (currentHour == hour) {
-    hour.attr("class", "present");
-}
-
-else {
-    hour.attr("class", "future")
-
-console.log(timeChange);
-}}};
-
-
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours
 
 // WHEN I view the timeblocks for that day
 // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 
 //code checks current hour to determine if past, present or future and apply appropriate style from css -- modify class name to set state to modify colors
 
+// function timeChange() {
+//     for (var i=0; i < .length; i++) {
+
+
+
+// timeChange;
+// console.log(timeChange);
+// }}};
+
 // WHEN I click into a timeblock
 // THEN I can enter an event
 
 // WHEN I click the save button for that timeblock
 // THEN the text for that event is saved in local storage
+
+function storeLocalStorage() {
+
+var userInput = localStorage.getItemById("textInput", JSON.stringify(userInput));
+
+textInput.textContent=userInput;
+
+
+var userInput = localStorage.getItemById("textInput")
+var saveBtn = document.querySelector("#saveBtn");
+
+saveBtn.addEventListener("click", function(event){
+    event.preventDefault();
+
+    var textInput = document.getItemById("textInput").value;
+
+    localStorage.setItem("userInput", userInput);
+})};
+
+
+
 
 // WHEN I refresh the page
 // THEN the saved events persist
@@ -69,6 +87,6 @@ console.log(timeChange);
 
 
 
-//apply appropriate status to an html element helping represent taht hour of the day
+// apply appropriate status to an html element helping represent taht hour of the day
 
-//take different inputs the user is giving in different textareas 
+// take different inputs the user is giving in different textareas
