@@ -28,12 +28,10 @@ Or use the URL listed below to pull up the live.
 
 Below is an image to demonstrate that the textarea is not following the column layout I am trying to set up in the HTML file using Bootstrap:
 
-![Textarea Troubles](./images/Textarea.png "Textarea Troubles")
+![Textarea Troubles](./Images/Textarea.png)
 
-Below is an image of the code used for the textarea in the HTML file
-
-![HTML Code](./images/Code.png "HTML Code")
-
+Below is an image of the code used for the textarea in the HTML file:
+![HTML Code](./Images/Code.png "HTML Code")
 
 
 ## Credits
