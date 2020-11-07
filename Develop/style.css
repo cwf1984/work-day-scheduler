@@ -4,7 +4,7 @@ body {
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
@@ -23,9 +23,10 @@ textarea{
 
 .description{
   white-space: pre-wrap;
+
 }
 
-.time-block{
+.time-block {
   text-align: center;
   border-radius: 15px;
 }
@@ -34,15 +35,12 @@ textarea{
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
-  background-color: rgb(212, 209, 209);
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  display: flex;
-  flex-wrap: wrap;
 
 }
 
