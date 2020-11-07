@@ -21,10 +21,20 @@ Or use the URL listed below to pull up the live.
 
 * The current date displays at the top of the page
 * There are timeblocks for each hour between 9AM and 5PM
-* Depending on the time of the day, times are color coded to match if they are in the past, present or future.
-* Clicking in the textarea next to an hour, the user is able to type input and it is saved in that block and in local storage on their computer. 
+* Time blocks are supposed to be color coded based on whether it is the past, present or future time - this was not working at my time blocks are not taking up the correct amount of space (???)
+* I am struggling to get anything to show up in local storage 
 
 ## Images
+
+Below is an image to demonstrate that the textarea is not following the column layout I am trying to set up in the HTML file using Bootstrap:
+
+![Textarea Troubles](./images/Textarea.png "Textarea Troubles")
+
+Below is an image of the code used for the textarea in the HTML file
+
+![HTML Code](./images/Code.png "HTML Code")
+
+
 
 ## Credits
 
