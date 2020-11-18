@@ -5,51 +5,74 @@ $(document).ready(function(){
     var currentDay = moment();
     $("#currentDay").text(currentDay.format("MMM Do, YYYY"));
 
-    var description = $(".description");
 
+    //
     var currentHour = parseInt(currentDay.format("H"));
     console.log (currentHour);
 
-    var scheduleHours = ["9:00AM", "10:00AM", "11:00AM", "12:00PM", "1:00PM", "2:00PM", "3:00PM", "4:00PM", "5:00PM"]
-    var timeIndex = [9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+    //if current color not correct, change to numbers only
+    var scheduleHours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+
+    
+    //for loop to loop through the length of the scheduleHours variable which references each timeblock in the scheduler
 
     for (i = 0; i < scheduleHours.length; i++) {
 
-        //set .description to timeIndex
-        // timeIndex.addClass("description");
+        //pull description class from each textarea and set to variable textAreaArray
+        var textAreaArray = $(".description");
+
+        //each item in the textAreaArray is assigned to the currentEl variable
+        var currentEl = textAreaArray[i];
+        // console.log(currentEl);
+
+        // adding the data-index to the currentEl variable and setting to new variable to use below
+        var colorCode = parseInt($(currentEl).attr("data-index"));
         
-        
-        if (timeIndex[i] < currentHour){
-            description.addClass("past");
+        //verify that data-index is converted from string to a number
+        console.log(typeof colorCode);
+
+        // when the data-index number is less than the currentHour, will be color coded to gray
+        if (colorCode < currentHour) {
+            $(currentEl).addClass("past");
         }
-    
-        else if (timeIndex[i] === currentHour) {
-            description.addClass("present");
+
+        //when the data-index number is the same as the currentHour, should have color of red
+        //if not working try ==
+        else if (colorCode === currentHour) {
+            $(currentEl).addClass("present");
         }
-    
+
+        //when the data-index number is higher than the currentHour, the text area will be green
         else {
-            description.addClass("future");
+            $(currentEl).addClass("future");
         }
 
     }
 
 
-// WHEN I click into a timeblock
-// THEN I can enter an event
+    //clicking on save button, the input that the user typed is saved to local storage
 
-// WHEN I click the save button for that timeblock
-// THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist
-//  I am still working on trying to get local storage to work
+    $(".saveBtn").on("click", function(event){
+        //select sibling of button element wanted
+        event.preventDefault;
+        
+        var textAreaValue = $(this).siblings(".description").val();
+        var parentEl = $(this).parent().attr("id");
+        console.log(textAreaValue, parentEl);
 
-    $(".saveBtn").on("click", function(){
-        var siblingEl = $(this).siblings("#textInput").val();
-        console.log(clickEvent);
-        var parentEl = $(this).parent().attr("id").val();
-        localStorage.setItem(clickEvent, parentEl); 
-    // localStorage.getItem(JSON.stringify(clickEvent));
+        localStorage.setItem(parentEl, textAreaValue);
     });
 
-
+    //returning the value from local storage to the text input field
+    //when the page is refreshed the text does not stay in the time block as it should
+    $("#textInput").val(localStorage.getItem("9AM"));
+    $("#textInput").val(localStorage.getItem("10AM"));
+    $("#textInput").val(localStorage.getItem("11AM"));
+    $("#textInput").val(localStorage.getItem("12PM"));
+    $("#textInput").val(localStorage.getItem("1PM"));
+    $("#textInput").val(localStorage.getItem("2PM"));
+    $("#textInput").val(localStorage.getItem("3PM"));
+    $("#textInput").val(localStorage.getItem("4PM"));
+    $("#textInput").val(localStorage.getItem("5PM"));
 })
