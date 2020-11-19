@@ -66,13 +66,13 @@ $(document).ready(function(){
 
     //returning the value from local storage to the text input field
     //when the page is refreshed the text does not stay in the time block as it should
-    $("#textInput").val(localStorage.getItem("9AM"));
-    $("#textInput").val(localStorage.getItem("10AM"));
-    $("#textInput").val(localStorage.getItem("11AM"));
-    $("#textInput").val(localStorage.getItem("12PM"));
-    $("#textInput").val(localStorage.getItem("1PM"));
-    $("#textInput").val(localStorage.getItem("2PM"));
-    $("#textInput").val(localStorage.getItem("3PM"));
-    $("#textInput").val(localStorage.getItem("4PM"));
-    $("#textInput").val(localStorage.getItem("5PM"));
+    $("#9AMtextInput").val(localStorage.getItem("9AM"));
+    $("#10AMtextInput").val(localStorage.getItem("10AM"));
+    $("#11AMtextInput").val(localStorage.getItem("11AM"));
+    $("#12PMtextInput").val(localStorage.getItem("12PM"));
+    $("#1PMtextInput").val(localStorage.getItem("1PM"));
+    $("#2PMtextInput").val(localStorage.getItem("2PM"));
+    $("#3PMtextInput").val(localStorage.getItem("3PM"));
+    $("#4PMtextInput").val(localStorage.getItem("4PM"));
+    $("#5PMtextInput").val(localStorage.getItem("5PM"));
 })
